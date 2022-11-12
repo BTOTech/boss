@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boss Yazı Editoru</title>
+  <link rel="stylesheet" href="text.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      </head>
+      <body>
+        <input type="checkbox" id="check">
+        <label for="check">
+          <i class="fas fa-bars" id="btn"></i>
+          <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <div class="sidebar">
+        <header>BTO Qeyd
+        </header>
+        <ul>
+         <li><a href="" id="link" download="boss.txt"><i class='fas fa-file-download'></i>Yadda Saxlayın</a></li>
+         <li><a href="#"><i class="fa fa-close"></i>Çıxış Et</a></li>
+         <li><a href="file:///D:/BTO/boss/home/off.html"><i class="fa fa-power-off"></i>Söndür</a></li>
+         <li><a href="#"><i class='fa fa-question-circle'></i>Kömək</a></li>
+        </ul>
+       </div>
+       <section>
+        <!--<a href="" id="link" download="boss.txt">Yadda Saxlayın </a>-->
+        <body bgcolor="skyblue"><center>
+          <h1>BTO Qeyd</h1>
+        <textarea style="width:1000px;height:1000px;" id="txt"></textarea>
+        <script>
+           window.onload = function() 
+            {
+            var txt = document.getElementById('txt');
+            document.getElementById('link').onclick = function(boss) 
+              {
+            this.href = 'data:text/plain;charset=utf-11,' + encodeURIComponent(txt.value);
+              };
+            };
+       
+          main();
+        </script>
+        <script>
+            const srcElement = document.querySelector("body"),
+            btns = document.querySelectorAll("button");
+          
+            btns.forEach(btn => { // looping through each btn
+              // adding click event to each btn
+              btn.addEventListener("click", () => {
+                // creating canvas of element using html2canvas
+                html2canvas(srcElement).then(canvas => {
+                  // adding canvas/screenshot to the body
+                  if(btn.id === "take-src-only") {
+                    return document.body.appendChild(canvas);
+                  }
+          
+                  // downloading canvas/screenshot
+                  const a = document.createElement("a");
+                  a.href = canvas.toDataURL();
+                  a.download = "screenshot.jpg";
+                  a.click();
+                });
+              });
+            });
+          </script>
+       </section>
+      </body>
+    </html>
+</body>
+</html>
